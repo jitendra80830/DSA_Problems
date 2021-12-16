@@ -8,6 +8,7 @@ public class ArrangeDigit {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         arrangeDigit(n);
+
     }
     public static void arrangeDigit(int n){
         int num = n;
