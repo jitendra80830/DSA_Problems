@@ -52,13 +52,16 @@ class LinkedList{
     }
     public void deleteEnd(){
         Node tempNode = head;
+        Node prevNode = null;
         if(head == null){
             System.out.println("List is Empty");
             return;
         }
         while (tempNode.next!=null){
+            prevNode = tempNode;
             tempNode = tempNode.next;
         }
+        prevNode.next = tempNode.next;
 
     }
     public void deleteMid(int num){
@@ -66,9 +69,12 @@ class LinkedList{
             System.out.println("List is Empty");
         }
         Node tempNode = head;
+        Node prevNode = null;
         while (tempNode!=null && tempNode.data!=num){
+            prevNode = tempNode;
             tempNode = tempNode.next;
         }
+        prevNode.next = tempNode.next;
 
     }
     public void print(){

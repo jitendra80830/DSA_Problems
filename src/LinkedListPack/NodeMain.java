@@ -16,7 +16,9 @@ public class NodeMain {
         list.insertMid(15,5);
         list.print();
         System.out.println();
-        list.deleteBeg();
+        //list.deleteBeg();
+        //list.deleteEnd();
+        list.deleteMid(15);
         list.print();
     }
 }
