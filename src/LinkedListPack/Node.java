@@ -6,21 +6,26 @@ public class Node {
     public Node(int data){
         this.data = data;
         this.next = null;
+
     }
 
 }
 class LinkedList{
     Node head = null;
+    int size = 0;
     public void insertBeg(int data){
         Node newNode = new Node(data);
         newNode.next = head;
         head = newNode;
+        size++;
+
     }
     public void insertEnd(int data){
 
         Node newNode = new Node(data);
         if(head == null){
             head = newNode;
+            size++;
             return;
         }else {
             Node tempNode = head;
@@ -30,6 +35,7 @@ class LinkedList{
             }
             tempNode.next = newNode;
             newNode.next = null;
+            size++;
         }
     }
     public void insertMid(int data , int num){
@@ -40,6 +46,7 @@ class LinkedList{
         }
         newNode.next = tempNode.next;
         tempNode.next = newNode;
+        size++;
 
 
     }
@@ -48,6 +55,7 @@ class LinkedList{
             System.out.println("List is Empty");
         }
         head = head.next;
+        size--;
 
     }
     public void deleteEnd(){
@@ -62,6 +70,7 @@ class LinkedList{
             tempNode = tempNode.next;
         }
         prevNode.next = tempNode.next;
+        size--;
 
     }
     public void deleteMid(int num){
@@ -75,6 +84,7 @@ class LinkedList{
             tempNode = tempNode.next;
         }
         prevNode.next = tempNode.next;
+        size--;
 
     }
     public void print(){
@@ -86,5 +96,50 @@ class LinkedList{
         }
 
     }
+    public int size(){
+        return this.size;
+    }
+    public  void addAtIndex(int item ,int k) throws Exception {
+        if(k <0 || k >=this.size){
+            throw new Exception("Invalid Index");
+        }
+        else if(k == 0){
+            insertBeg(item);
+        }
+        else if(k == this.size){
+            insertEnd(item);
+        }else {
+            Node newNode  = new Node(6);
+            Node prev = getNode(k-1);
+            //Node prevNext = prev.next;
+            //prev.next = newNode;
+            //newNode.next= prevNext;
+
+
+            newNode.next = prev.next;
+            prev.next = newNode;
+            this.size++;
+
+
+
+        }
+    }
+    public Node getNode(int k) throws Exception {
+        if(k < 0 || k>=this.size){
+            throw new Exception("Invalid Index");
+        }
+        Node tempNode = this.head; //if k == 0 then return temp means head
+        for (int i = 0; i <k ; i++) {
+            tempNode = tempNode.next;
+
+        }
+        return tempNode;
+
+    }
+    public int getAtIndex(int k) throws Exception {
+        return this.getNode(k).data;
+
+    }
+    //public void getMid(int k)
 
 }

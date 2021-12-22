@@ -1,7 +1,7 @@
 package LinkedListPack;
 
 public class NodeMain {
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception {
         LinkedList list = new LinkedList();
         list.insertBeg(2);
         list.insertBeg(5);
@@ -20,5 +20,16 @@ public class NodeMain {
         //list.deleteEnd();
         list.deleteMid(15);
         list.print();
+        System.out.println();
+        list.deleteEnd();
+        list.print();
+        System.out.println();
+        System.out.println(list.size());
+       // list.size();
+        list.addAtIndex(6,2);
+        list.print();
+        System.out.println();
+        System.out.println(list.size());
+        System.out.println(list.getAtIndex(4));
     }
 }
