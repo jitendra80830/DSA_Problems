@@ -19,7 +19,7 @@ public class DuplicateChar2{
         for(int i = 0;i <26;i++){
             if(freque[i] > 1){
                 flag = 1;
-                System.out.print((i+'a')+"="+ freque[i]+" ");
+                System.out.print((char)(i+'a')+"="+ freque[i]+" ");
 
             }
         }
