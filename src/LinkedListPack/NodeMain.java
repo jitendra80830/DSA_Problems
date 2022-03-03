@@ -31,5 +31,6 @@ public class NodeMain {
         System.out.println();
         System.out.println(list.size());
         System.out.println(list.getAtIndex(4));
+
     }
 }

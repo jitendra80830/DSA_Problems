@@ -141,5 +141,35 @@ class LinkedList{
 
     }
     //public void getMid(int k)
+    public static Node reverseInGroup(Node head , int k){
+        Node nex = null;
+        Node pre = null;
+        int count = 0;
+        Node curr = head;
+        while (curr!=null && count < k){
+            nex = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = nex;
+            count++;
+        }
+        if(nex!=null){
+            head.next = reverseInGroup(nex , k);
+        }
+        return pre;
+
+    }
+    public Node reverseLikedList(Node head){
+        Node prev = null;
+        Node curr = head;
+        Node nxt = null;
+        while (curr!=null){
+            nxt = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nxt;
+        }
+        return prev;
+    }
 
 }
