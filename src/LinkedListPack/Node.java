@@ -1,5 +1,7 @@
 package LinkedListPack;
 
+import java.util.ArrayList;
+
 public class Node {
     int data;
     Node next;
@@ -10,7 +12,7 @@ public class Node {
     }
 
 }
-class LinkedList{
+class LinkedList<C> {
     Node head = null;
     int size = 0;
     public void insertBeg(int data){
@@ -171,5 +173,6 @@ class LinkedList{
         }
         return prev;
     }
+
 
 }

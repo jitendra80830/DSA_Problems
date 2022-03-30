@@ -6,7 +6,8 @@ public class Squarroot {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         long n = sc.nextLong();
-        System.out.println(squarRoot(n));
+        //System.out.println(squarRoot(n));
+        System.out.print(squarRT2(n));
     }
 
     private static long squarRoot(long n) {
@@ -30,5 +31,15 @@ public class Squarroot {
             }
         }
         return ans;
+    }
+    private static long squarRT2(long n){
+        if (n == 0 || n == 1){
+            return n;
+        }
+        long i = 1;
+        while (i*i <=n){
+            i = i+1;
+        }
+        return i-1;
     }
 }

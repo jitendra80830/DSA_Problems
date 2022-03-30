@@ -2,7 +2,7 @@ package LinkedListPack;
 
 public class NodeMain {
     public static void main(String[] args) throws Exception {
-        LinkedList list = new LinkedList();
+        LinkedList<Integer> list = new LinkedList<>();
         list.insertBeg(2);
         list.insertBeg(5);
         list.insertBeg(3);

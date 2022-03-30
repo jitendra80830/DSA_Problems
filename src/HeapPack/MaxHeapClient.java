@@ -6,7 +6,7 @@ public class MaxHeapClient {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        MaxHeap maxHeap = new MaxHeap(n);
+        MinHeap maxHeap = new MinHeap(n);
         for (int i = 1; i <=n ; i++) {
             int item = sc.nextInt();
             maxHeap.insert(item);
@@ -22,7 +22,7 @@ public class MaxHeapClient {
 //        System.out.println("after deleted max key");
 //        maxHeap.print();
         System.out.println();
-        maxHeap.increaseKays(5 ,400);
+        maxHeap.decreasekey(5,400);
 
         maxHeap.print();
 
