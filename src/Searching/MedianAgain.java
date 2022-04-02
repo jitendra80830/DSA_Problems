@@ -13,23 +13,27 @@ public class MedianAgain {
             arr[i] = sc.nextInt();
         }
         Arrays.sort(arr);
-        medianAgain(arr ,n , k);
+        median(arr ,n , k);
     }
 
     //wrong
-    private static void medianAgain(int[] arr, int n, int k) {
-        int low = 0;
-        int high = arr.length-1;
-        int i = 0;
-        int median = 0;
-        while (low < high && i <= k){
-            int mid = (low + high)/2;
-            median = arr[mid];
-            if(median < arr[mid+1]){
-                low = mid+1;
+    public static void median(int arr[] , int k , int n) {
+        int mid = n/2;
+        int i;
+        for (i = arr[mid]; k > 0; i++) {
+            while (mid+1<n && i == arr[mid+1]) {
+                mid++;
             }
-            i++;
+
+            k -= (mid- n/2 +1);
+
+
         }
-        System.out.println(median);
+        if(k==0){
+            System.out.println(i);
+        }else{
+            System.out.println(i-1);
+        }
+
     }
 }
