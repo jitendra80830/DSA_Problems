@@ -22,19 +22,21 @@ public class PerfectString {
         Stack<Character> st = new Stack<>();
         char ch[] = str.toCharArray();
         for (int i = 0; i <ch.length ; i++) {
-            if(st.isEmpty() || st.peek()!=ch[i]){
-                st.push(ch[i]);
-            }else {
+            if(!st.isEmpty() && (Math.abs(st.peek() - ch[i]) == 32)){
                 st.pop();
+            }else {
+                st.push(ch[i]);
             }
 
         }
-        String ans = "";
+
+        StringBuilder ans = new StringBuilder();
         while (!st.isEmpty()){
-            ans+=st.peek();
+            ans.append(st.peek());
             st.pop();
         }
         reverseString(ans);
+        //System.out.println();
 //        int start = 0;
 //        int end = ans.length()-1;
 //        char charArr[] = ans.toCharArray();
@@ -48,19 +50,17 @@ public class PerfectString {
 //        }
 
     }
-    private static void reverseString(String str) {
-        char chArr[] = str.toCharArray();
-        int last = str.length()-1;
-        int half = str.length() /2;
-        for (int i = 0; i <half ; i++) {
-            char temp = chArr[i];
-            chArr[i] = chArr[last - i];
-            chArr[last -i] = temp;
-        }
-        for (int i = 0; i <chArr.length ; i++) {
-            System.out.print(chArr[i]);
+    private static void reverseString(StringBuilder str) {
 
+       // StringBuilder sb = str.toString();
+        StringBuilder reverse = new StringBuilder();
+        for (int i = str.length()-1; i >=0 ; i--) {
+            reverse.append(str.charAt(i));
         }
+        for (int i = 0; i <reverse.length() ; i++) {
+            System.out.print(reverse.charAt(i));
+        }
+        System.out.println();
 
     }
 }
