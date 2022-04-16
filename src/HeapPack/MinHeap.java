@@ -100,5 +100,16 @@ public class MinHeap {
         decreasekey(k , Integer.MIN_VALUE);
         deletemin();
     }
+    public void heapSort(int arr[]){
+        build_heap();
+        int length = size;
+        for (int i = size; i>=2 ; i--) {
+            swap(1 ,i);
+            this.size--;
+            min_heapify(heap ,1);
+
+        }
+        size = length;
+    }
 
 }

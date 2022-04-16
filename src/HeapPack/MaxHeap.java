@@ -12,6 +12,11 @@ public class MaxHeap {
     }
     public void insert(int element){
         this.heap[++size] = element;
+        int i = size;
+        while (i >1 && heap[i] > heap[i/2]){
+            swap(i , i/2);
+            i = i/2;
+        }
     }
     public void build_heap() {
         int j = (int) Math.floor(this.size / 2.0); //first non leaves
@@ -20,7 +25,7 @@ public class MaxHeap {
 
         }
     }
-    private void max_heapify(int[] heap, int i) {
+    public void max_heapify(int[] heap, int i) {
 
         if(isleaves(i)){
             return;
@@ -56,7 +61,7 @@ public class MaxHeap {
 
     }
 
-    private void swap(int largest, int i) {
+    public void swap(int largest, int i) {
         int temp = heap[i];
         heap[i] = heap[largest];
         heap[largest] = temp;
@@ -86,7 +91,7 @@ public class MaxHeap {
     }
     public void increaseKays(int i,int keys){
         if(keys < heap[i]){
-            System.out.println("Error");
+            return;
         }
         heap[i] = keys;
         while (i>1 && heap[i/2] < heap[i]){
@@ -94,5 +99,17 @@ public class MaxHeap {
             i = i/2;
         }
     }
+    public void heapSort(int arr[]){
+        build_heap();
+        int length = size;
+        for (int i = size; i>=2 ; i--) {
+            swap(1 ,i);
+            this.size--;
+            max_heapify(heap ,1);
+
+        }
+        size = length;
+    }
+
 
 }
