@@ -5,48 +5,42 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class SwapSum {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int s = scanner.nextInt();
-        int[] arr = new int[n];
+        int[] a = new int[n];
         for (int i = 0; i < n; i++) {
-            arr[i] = scanner.nextInt();
+            a[i] = scanner.nextInt();
         }
-        long res = Integer.MIN_VALUE;
+        int ans = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
-            for (int j = i; j <n; j++) {
-                long sum = 0;
-                PriorityQueue<Integer> minheap = new PriorityQueue<>(); //PQ1
-                PriorityQueue<Integer> maxheap = new PriorityQueue<>(Collections.reverseOrder());//PQ2
-
-                for (int k = 0; k <n; k++) {
+            for (int j = i; j < n; j++) {
+                int curans = 0;
+                PriorityQueue<Integer> minheap = new PriorityQueue<>();
+                PriorityQueue<Integer> maxheap = new PriorityQueue<>(Collections.reverseOrder());
+                for (int k = 0; k < n; k++) {
                     if (k >= i && k <= j) {
-                        maxheap.add(arr[k]);
-                        sum += arr[k];
+                        curans += a[k];
+                        minheap.add(a[k]);
                     } else {
-                        minheap.add(arr[k]);
+                        maxheap.add(a[k]);
                     }
                 }
-
-                res = Math.max(res, sum);
-
+                ans = Math.max(ans, curans);
                 for (int k = 1; k <= s; k++) {
-                    if ( !minheap.isEmpty() && !maxheap.isEmpty() &&  maxheap.peek() < minheap.peek()) {
-                        sum -= maxheap.peek();
-                        maxheap.remove();
-                        sum += minheap.peek();
-                        minheap.remove();
-
-                        res = Math.max(res, sum);
-                    }else {
+                    if (maxheap.isEmpty() || minheap.isEmpty() || minheap.peek() >= maxheap.peek()) {
                         break;
                     }
-
+                    curans -= minheap.peek();
+                    minheap.remove();
+                    curans += maxheap.peek();
+                    maxheap.remove();
+                    ans = Math.max(ans, curans);
                 }
             }
         }
-
-        System.out.println(res);
+        System.out.println(ans);
     }
 }
+
