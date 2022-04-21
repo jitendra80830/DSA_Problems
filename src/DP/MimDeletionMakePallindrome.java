@@ -3,7 +3,7 @@ package DP;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class LongestPollidromeSunsequence {
+public class MimDeletionMakePallindrome {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         String str  = sc.next();
@@ -52,7 +52,7 @@ public class LongestPollidromeSunsequence {
 
 
         int lps = dp[n][m];
-        System.out.println(lps);
+        System.out.println(n -lps);
         //System.out.println(dp[n][m]);
     }
 }

@@ -3,9 +3,10 @@ package DP;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class LongestPollidromeSunsequence {
+public class MinInsertionMakepollingrome {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
+        int len = sc.nextInt();
         String str  = sc.next();
         StringBuilder str2 = new StringBuilder();
 //        for (int i = str.length()-1; i>=0 ; i--) {
@@ -52,7 +53,7 @@ public class LongestPollidromeSunsequence {
 
 
         int lps = dp[n][m];
-        System.out.println(lps);
+        System.out.println(len - lps);
         //System.out.println(dp[n][m]);
     }
 }
