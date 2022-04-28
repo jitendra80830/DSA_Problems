@@ -8,7 +8,7 @@ public class PiTable {
         String P = sc.next();
 
         int piTable[] = findPitbale(P);
-        for (int i = 1; i <=piTable.length ; i++) {
+        for (int i = 0; i <piTable.length ; i++) {
             System.out.print(piTable[i]+" ");
 
         }
@@ -17,13 +17,13 @@ public class PiTable {
     private static int[] findPitbale(String p) {
         int m = p.length();
         int pi[] = new int[m];
-        pi[1] = 0;
+        pi[0] = 0;
         int k =0;
-        for (int q = 2; q <m ; q++) {
-            while (k > 0 && p.charAt(k+1)!=p.charAt(q)){
+        for (int q = 1; q <m ; q++) {
+            while (k > 0 && p.charAt(k)!=p.charAt(q)){
                 k = pi[k];
             }
-            if(p.charAt(k+1)== p.charAt(q)){
+            if(p.charAt(k)== p.charAt(q)){
                 k = k+1;
             }
             pi[q] = k;

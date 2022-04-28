@@ -28,9 +28,6 @@ public class minJumbReachEnd {
                         dp[i] = dp[j]+1;
                     }
                 }
-//                if(i <= (j + arr[j])){
-//                    dp[i] = Math.min(dp[i] , dp[j]+1);
-//                }
 
             }
 
