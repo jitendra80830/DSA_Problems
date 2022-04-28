@@ -1,54 +1,62 @@
 package Greedy;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class PowerOf3 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
 
-        int arr[] = new int[String.valueOf(n).length()+2];
-        int number = n;
+    public static void greater(long n) {
+        int[] p = new int[40];
+        //long k = n;
         int index = 0;
-        while (number>0){
-            arr[index] = number % 3;
-            number = number/3;
+        long x = n;
+        while (x > 0) {
+            p[index] = (int) (x % 3);
+            x /= 3;
             index++;
         }
-        int  idx = 0;
-        for (int i = 0; i <arr.length-1 ; ++i) {
-            if(arr[i] >=2 ){
-                arr[0] = 0;
-                arr[i+1]++;
-
-                for (int j = idx; j <i ; ++j) {
-                    arr[j] = 0;
+        int idx = 0;
+        for (int i = 0; i < p.length - 1; ++i) {
+            if (p[i] >= 2) {
+                p[i] = 0;
+                p[i + 1]++;
+                for (int j = idx; j < i; ++j) {
+                    p[j] = 0;
                 }
-                idx = i+1;
+                idx = i + 1;
             }
-            if(arr[i] == 3){
-                arr[i] = 0;
-                arr[i+1]++;
+            if (p[i] == 3) {
+                p[i] = 0;
+                p[i + 1]++;
             }
         }
-        int j = arr.length-1;
-
-        if(arr[j]>=2){
-            arr[index] = 1;
+        int j = p.length - 1;
+        if (p[j] >= 2) {
+            p[index] = 1;
             index++;
         }
-        int ans = 0;
-        for (int i = arr.length-1; i >=0 ; --i) {
-            ans = ans * 3 + arr[i];
-
+        long ans = 0;
+        for (int i = p.length - 1; i >= 0; --i) {
+            ans = ans * 3 + p[i];
         }
-        System.out.println(ans);
+        System.out.print(ans);
     }
-    public static int pow(int a,int b){
-        if(b == 0){
-            return 1;
-        }
 
-        return a*pow(a,b-1);
+    public static void main(String args[]) throws IOException {
+        //write your code here
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t-- > 0) {
+            long n = sc.nextLong();
+            greater(n);
+            System.out.println();
+        }
+        //   if(flag==0)
+        //   {
+        //   // System.out.println(n);
+        //   }
+        //   else
+        // //  System.out.println(convertBack(pos+1))
     }
 }
+

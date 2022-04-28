@@ -7,8 +7,9 @@ public class MimNoOfSwap_For_BracketsBalance {
     public static void main(String[] arg){
         Scanner sc = new Scanner(System.in);
         int len = sc.nextInt();
-        String str = sc.next();
         int n = 2 *len;
+        String str = sc.next();
+
         Vector<Integer> vt = new Vector<>();
 
         for (int i = 0; i <n ; i++) {
