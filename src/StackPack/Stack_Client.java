@@ -2,7 +2,7 @@ package StackPack;
 
 public class Stack_Client {
     public static void main(String[] args) throws Exception {
-        Stack s = new Stack();
+        Stack<Number> s = new Stack<Number>();
         s.push(10);
         s.push(20);
         s.push(30);

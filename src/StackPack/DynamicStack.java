@@ -1,6 +1,6 @@
 package StackPack;
 
-public class DynamicStack extends Stack{
+public class DynamicStack extends Stack<Number> {
     @Override
     public void push(int item) throws Exception {
         if(isFull()){

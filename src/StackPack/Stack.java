@@ -1,6 +1,6 @@
 package StackPack;
 
-public class Stack {
+public class Stack<I extends Number> {
     protected int data[];
     private int top;
     public Stack(){
