@@ -1,0 +1,20 @@
+package Tries;
+
+import java.util.Scanner;
+
+public class TrieMain {
+    public static void main(String[] args){
+        String key[] = {"pre","prep" , "prepbytes" ,"sout"};
+        TriMethod tm = new TriMethod();
+        tm.root = new TrieNode();
+        for (int i = 0; i < key.length ; i++) {
+            tm.insert(key[i]);
+        }
+        tm.display(tm.root , "" , 0);
+        if(tm.search("sout")){
+            System.out.println("Yes");
+        }else {
+            System.out.println("No");
+        }
+    }
+}

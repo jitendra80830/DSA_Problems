@@ -8,9 +8,15 @@ public class PiTable {
         String P = sc.next();
 
         int piTable[] = findPitbale(P);
-        for (int i = 0; i <piTable.length ; i++) {
-            System.out.print(piTable[i]+" ");
-
+//        for (int i = 0; i <piTable.length ; i++) {
+//            System.out.print(piTable[i]+" ");
+//
+//        }
+        //System.out.println();
+        //System.out.println(piTable[P.length()-1]);
+        int val = piTable[P.length()-1];
+        for (int i = 0; i <val ; i++) {
+            System.out.print(P.charAt(i));
         }
     }
 

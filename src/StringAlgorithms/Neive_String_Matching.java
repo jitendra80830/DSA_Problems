@@ -11,16 +11,19 @@ public class Neive_String_Matching {
     }
 
     private static void neiveStringMatching(String t, String p) {
+        int counter = 0;
         int n = t.length();
         int m =p.length();
         for (int s = 0; s <=n-m ; s++) { // it will run till n-m
             if(matchingstring(s , m,t,p)){ // if p's and t's value matching then print matched
-                System.out.println("Matched after "+s+" shift");
+                counter++;
+                //System.out.println("Matched after "+s+" shift");
 
             }
 
 
         }
+        System.out.println(counter);
     }
 
     private static boolean matchingstring(int s, int m, String t, String p) {
