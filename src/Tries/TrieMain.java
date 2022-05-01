@@ -16,5 +16,8 @@ public class TrieMain {
         }else {
             System.out.println("No");
         }
+        tm.delete("pre");
+        tm.display(tm.root , "" , 0);
+
     }
 }

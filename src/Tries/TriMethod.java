@@ -45,5 +45,43 @@ public class TriMethod {
         }
         return (node!=null && node.endOfWord == true);
     }
+    void delete(String str){
+        int strLength = str.length();
+        if(strLength > 0){
+            deleteFun(root , str , 0 , strLength);
+        }
+    }
+
+    private boolean deleteFun(TrieNode root, String str, int triIndex, int strLength) {
+        if(root ==null){
+            return false;
+        }
+        if(triIndex == strLength){
+            root.endOfWord = false;
+            if(hasNoChild(root)){
+                return true;
+            }else {
+                return false;
+            }
+        }else {
+            TrieNode chilNode = root.children[str.charAt(triIndex) - 'a']; // last child
+            boolean childDeleted = deleteFun(chilNode ,str , triIndex+1 , strLength); //if deleted last child return true other false
+
+            if(childDeleted){ //if deleted
+                return (root.endOfWord && hasNoChild(root));
+            }
+        }
+        return false;
+    }
+
+    private boolean hasNoChild(TrieNode root) {
+        for (int i = 0; i <root.children.length ; i++) {
+            if(root.children[i]!=null){ //if not null means child is present then return false
+                return false;
+            }
+
+        }
+        return true; //if null means there not child then return true
+    }
 
 }
