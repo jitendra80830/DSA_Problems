@@ -83,5 +83,40 @@ public class TriMethod {
         }
         return true; //if null means there not child then return true
     }
+    boolean printAutoSuggession(TrieNode root , String prifixStr){
+        int level;
+        int length = prifixStr.length();
+        TrieNode node  = root;
+        for (level = 0; level <length ; level++) {
+            int triIndex = prifixStr.charAt(level) - 'a';
+            if(node.children[triIndex] == null){
+                return false;
+            }
+            node = node.children[triIndex];
+        }
+        if(node.endOfWord && hasNoChild(node)){ //if endofWord if true and no any child node then
+            System.out.println(prifixStr);
+            return false;
+        }
+        if(!hasNoChild(node)){
+            recursiveDisplay(node , prifixStr);
+            return true;
+        }
+        return false;
+    }
+
+    private void recursiveDisplay(TrieNode node, String prifixStr) {
+        if(node.endOfWord){
+            System.out.println(prifixStr);
+        }
+        for (int i = 0; i <26 ; i++) {
+            if(node.children[i]!=null){
+                String key = prifixStr + (char)(i + 'a');
+                recursiveDisplay(node.children[i],key );
+            }
+
+        }
+
+    }
 
 }
