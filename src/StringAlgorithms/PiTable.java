@@ -15,9 +15,10 @@ public class PiTable {
         //System.out.println();
         //System.out.println(piTable[P.length()-1]);
         int val = piTable[P.length()-1];
-        for (int i = 0; i <val ; i++) {
-            System.out.print(P.charAt(i));
-        }
+        System.out.println(val);
+//        for (int i = 0; i <val ; i++) {
+//            System.out.print(P.charAt(i));
+//        }
     }
 
     private static int[] findPitbale(String p) {

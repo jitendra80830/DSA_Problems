@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TrieMain {
     public static void main(String[] args){
-        String key[] = {"pre","prep" , "prepbytes" ,"sout"};
+        String key[] = {"pre","prep" , "prepbytes" ,"prepbyte","proper"};
         TriMethod tm = new TriMethod();
         tm.root = new TrieNode();
         for (int i = 0; i < key.length ; i++) {
@@ -17,7 +17,8 @@ public class TrieMain {
 //            System.out.println("No");
 //        }
         //tm.delete("pre");
-        tm.printAutoSuggession(tm.root , "so");
+        //tm.printAutoSuggession(tm.root , "so");
+        System.out.println(tm.lcpTrie(tm.root));
 
 
 

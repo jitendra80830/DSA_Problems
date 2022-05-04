@@ -1,6 +1,7 @@
 package LinkedListPack;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Node {
     int data;
@@ -173,6 +174,104 @@ class LinkedList<C> {
         }
         return prev;
     }
+    public int maxPalindromeLen(){
+        return maxPalindrome(this.head);
+    }
+    private  int maxPalindrome(Node head){
+        int result = 0;
+        Node prev = null;
+        Node curr = head;
+        while (curr!=null){
+            Node next = curr.next;
+            curr.next = prev;
 
+            // check for odd length
+            result = Math.max(result ,
+                    2 * countCommon(prev , next) +1);
+
+            // check for even length
+            result = Math.max(result ,
+                    2 * countCommon(curr , next));
+
+            prev = curr;
+            curr = next;
+
+        }
+        return result;
+    }
+
+    private  int countCommon(Node prev, Node next) {
+        int count = 0;
+        for(;prev!=null && next!=null;prev = prev.next,next = next.next){
+
+            if(prev.data == next.data){
+                count++;
+            }else {
+                break;
+            }
+        }
+
+        return count;
+    }
+    public Node reverseBtRange(int l ,int r){
+        return reverseBetweenRange(head ,l ,r);
+
+    }
+    public Node reverseBetweenRange(Node head , int m ,int n){
+        if(m == n){
+            return head;
+        }
+        Node rev_start = null; //starting of to be reversed(mth)
+        Node rev_end = null; //ending of to be reversed(nth)
+        Node revs_prev = null;//before revs node(m-1th)
+        Node revs_next = null; //after revend node(n+1 th)
+
+        int counter  = 1;
+        Node curr = head;
+
+        while (curr!=null && counter <=n){
+            if(counter < m){
+                revs_prev = curr;
+            }
+            if (counter ==m){
+                rev_start = curr;
+            }
+            if(counter == n){
+                rev_end = curr;
+                revs_next = curr.next;
+            }
+            curr = curr.next;
+            counter = counter +1;
+
+        }
+        rev_end.next = null;
+        rev_end = reverseLikedList(rev_start);
+        if(revs_prev!=null){
+            revs_prev.next = rev_end;
+        }else {
+            head = rev_end;
+
+        }
+        rev_start.next = revs_next;
+        return head;
+    }
+    public int findPainrsum(int sum){
+        return 0;
+    }
+    public int findPairSum(Node head ,int sum){
+        HashSet<Integer> set = new HashSet<>();
+        int count = 0;
+        Node p = head;
+        while (p!=null){
+            int curr = p.data;
+            if(set.contains(sum - curr)){
+                count++;
+            }
+            set.add(p.data);
+            p = p.next;
+
+        }
+        return count;
+    }
 
 }

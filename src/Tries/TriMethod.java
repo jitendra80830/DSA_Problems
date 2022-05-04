@@ -2,6 +2,7 @@ package Tries;
 
 public class TriMethod {
     TrieNode root;
+    public int index = 0;
     void insert(String str){
         int strIndex;
         int triIndex;
@@ -114,8 +115,27 @@ public class TriMethod {
                 String key = prifixStr + (char)(i + 'a');
                 recursiveDisplay(node.children[i],key );
             }
-
         }
+    }
+    public String lcpTrie(TrieNode root){
+        TrieNode node = root;
+        String prefix = "";
+        while (countChildNode(node)==1 && !node.endOfWord){
+            node = node.children[index];
+            prefix += (char)('a' + index);
+        }
+        return prefix;
+    }
+
+    private int countChildNode(TrieNode node) {
+        int count = 0;
+        for (int i = 0; i <26 ; i++) {
+            if(node.children[i]!=null){
+                count++;
+                index = i;
+            }
+        }
+        return count;
 
     }
 
