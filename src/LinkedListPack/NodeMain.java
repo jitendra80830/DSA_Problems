@@ -38,7 +38,6 @@ public class NodeMain {
 //        System.out.println(list.getAtIndex(4));
           System.out.println(list.maxPalindromeLen());
           list.reverseBtRange(2,4);
-          list.print();
 
     }
 }

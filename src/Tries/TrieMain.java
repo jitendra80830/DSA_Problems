@@ -4,13 +4,15 @@ import java.util.Scanner;
 
 public class TrieMain {
     public static void main(String[] args){
-        String key[] = {"pre","prep" , "prepbytes" ,"prepbyte","proper"};
-        TriMethod tm = new TriMethod();
-        tm.root = new TrieNode();
-        for (int i = 0; i < key.length ; i++) {
-            tm.insert(key[i]);
-        }
-        tm.display(tm.root , "" , 0);
+//        String key[] = {"pre","prep" , "prepbytes" ,"prepbyte","proper"};
+//        TriMethod tm = new TriMethod();
+//        tm.root = new TrieNode();
+//        for (int i = 0; i < key.length ; i++) {
+//            tm.insert(key[i]);
+//        }
+//
+//        tm.display(tm.root , "" , 0);
+//        //tm.search("pre");
 //        if(tm.search("sout")){
 //            System.out.println("Yes");
 //        }else {
@@ -18,7 +20,7 @@ public class TrieMain {
 //        }
         //tm.delete("pre");
         //tm.printAutoSuggession(tm.root , "so");
-        System.out.println(tm.lcpTrie(tm.root));
+        //System.out.println(tm.lcpTrie(tm.root));
 
 
 
@@ -27,34 +29,25 @@ public class TrieMain {
 
 
 // /       tm.display(tm.root , "" , 0);
-//        Scanner sc = new Scanner(System.in);
-//        int n = sc.nextInt();
-//       // int m = sc.nextInt();
-//        String strIn[] = new String[n];
-//        TriMethod tm = new TriMethod();
-//        for (int i = 0; i <n ; i++) {
-//            strIn[i] = sc.next();
-//        }
-//        for (int i = 0; i <n ; i++) {
-//            tm.insert(strIn[i]);
-//        }
-//        if(tm.search("arn")){
-//            System.out.println("Yes");
-//        }else {
-//            System.out.println("NO");
-//        }
-//        String strOut[] = new String[m];
-//        for (int i = 0; i <m ; i++) {
-//            strOut[i] = sc.next();
-//        }
-//        for (int i = 0; i <m ; i++) {
-//            if(tm.search(strOut[i])){
-//                System.out.println("Present");
-//            }else {
-//                System.out.println("Not");
-//            }
-//
-//        }
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        TriMethod tm = new TriMethod();
+        while (n-->0){
+            String text = sc.next();
+            tm.insert(text);
+        }
+
+        while (m-->0){
+            String word = sc.next();
+            if(tm.search(word)){
+                System.out.println("Yes");
+            }else {
+                System.out.println("NO");
+            }
+        }
+
 
     }
 }
