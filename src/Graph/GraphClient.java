@@ -12,15 +12,15 @@ public class GraphClient {
         g.addNodes(5);
         g.addNodes(300);
         g.addEdges(0 ,1);
-        g.addEdges(0 ,2);
-        g.addEdges(1,4);
+        //g.addEdges(0 ,2);
+        //g.addEdges(1,4);
         g.addEdges(1 ,5);
         g.addEdges(2 ,3);
-        g.addEdges(4 ,5);
+        //g.addEdges(4 ,5);
         g.addEdges(4 ,6);
-        g.addEdges(5 ,7);
+        //g.addEdges(5 ,7);
         System.out.println("Visited Nodes");
-        //g.dfs(0);
+        g.dfs(0);
         System.out.println();
         g.dft();
     }

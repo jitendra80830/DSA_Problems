@@ -42,11 +42,11 @@ public class JobSequencing {
         int totalProfit = 0;
         for (int i = 0; i <n; i++) {
             if(slot[i]){
-                System.out.print(arr[result[i]].id+" ");
+                //System.out.print(arr[result[i]].id+" ");
                 totalProfit+= arr[result[i]].profit;
             }
         }
-        System.out.println();
+        //System.out.println();
         System.out.println(totalProfit);
 
 

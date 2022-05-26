@@ -14,15 +14,24 @@ public class FractionalKmapsack {
 
         Product ratio[] = new Product[n];
 
-        for (int i = 0; i <n ; i++) {
+//        int i =0;
+//        while (i<n){
+//            profit[i] = sc.nextFloat();
+//            wt[i] = sc.nextFloat();
+//            i++;
+//        }
+        for (int i = 0; i < n; i++) {
             wt[i] = sc.nextFloat();
         }
-        for (int i = 0; i <n ; i++) {
+        for (int i = 0; i < n; i++) {
             profit[i] = sc.nextFloat();
         }
 
-        for (int i = 0; i <n ; i++) {
-            ratio[i] = new Product(wt[i] , profit[i]);
+
+
+
+        for (int j = 0; j <n ; j++) {
+            ratio[j] = new Product(wt[j] , profit[j]);
 
         }
         fractionalKnapsack(ratio , cap , n);
@@ -65,7 +74,7 @@ public class FractionalKmapsack {
         if(flag ==1){
             totalProfit += ratio[i].profit * (cap /ratio[i].wt);
         }
-        System.out.println(totalProfit);
+        System.out.println( totalProfit);
     }
 }
 class Product{

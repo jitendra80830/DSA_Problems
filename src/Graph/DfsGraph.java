@@ -42,13 +42,15 @@ public class DfsGraph {
 
     }
     public void dft(){
+        int count = 0;
         for (int i = 0; i <numberNodes ; i++) {
             if(!nodesList[i].visited){
                 dfs(i);
+                count++;
             }
 
         }
+        System.out.println(count);
     }
-
 
 }
