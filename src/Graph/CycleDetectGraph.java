@@ -46,13 +46,13 @@ public class CycleDetectGraph {
         while (!q.isEmpty()){
             int popitem = q.poll(); //poped element
             for (int i = 0; i <addjList.get(popitem).size() ; i++) { // addjcent elements of popitem
-                int addjoFpopedIntem = addjList.get(popitem).get(i);
-                if(!visited[addjoFpopedIntem]){ // if not visited
-                    visited[addjoFpopedIntem] = true;
-                    q.add(addjoFpopedIntem);
-                    parent[addjoFpopedIntem] = popitem;
+                int addjItem = addjList.get(popitem).get(i);
+                if(!visited[addjItem]){ // if not visited
+                    visited[addjItem] = true;
+                    q.add(addjItem);
+                    parent[addjItem] = popitem;
                 }else {
-                    if(parent[popitem]!=addjoFpopedIntem){ //  if visited
+                    if(parent[popitem]!=addjItem){
                         return true;
                     }
                 }

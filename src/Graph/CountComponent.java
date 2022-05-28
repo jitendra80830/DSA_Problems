@@ -58,7 +58,7 @@ public class CountComponent {
             q.add(n);
             while (!q.isEmpty()) {
                 int node1 = q.remove();
-                System.out.print(node1 + " ");
+                //System.out.print(node1 + " ");
                 ArrayList<Integer> node2 = adj.get(node1);
                 for (Integer node : node2) {
                     visited[node] = true;

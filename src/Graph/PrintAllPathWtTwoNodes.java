@@ -16,7 +16,7 @@ public class PrintAllPathWtTwoNodes {
             int v = sc.nextInt();
             arr[u][v] = 1;
         }
-        int scr = sc.nextInt();;
+        int scr = sc.nextInt();
         int dest = sc.nextInt();
         int visited[] = new int[100005];
         printAllPath(nodes , scr , dest , visited , arr);
