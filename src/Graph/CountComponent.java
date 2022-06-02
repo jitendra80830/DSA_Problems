@@ -27,17 +27,16 @@ public class CountComponent {
         }
 
         public void dfs(int n) {
-            int count = 0;
             visited[n] = true;
             //  System.out.print(n+" ");
             ArrayList<Integer> node1 = adj.get(n);
             for (Integer node : node1) {
-                count++;
+
                 if (visited[node] == false) {
                     dfs(node);
                 }
             }
-            System.out.println(count);
+
         }
 
         public void dft() {
@@ -81,8 +80,8 @@ public class CountComponent {
                 int v = sc.nextInt();
                 g.addEdge(u, v);
             }
-            //g.dft();
-            g.bfs(0);
+            g.dft();
+            //g.bfs(0);
         }
     }
 }
