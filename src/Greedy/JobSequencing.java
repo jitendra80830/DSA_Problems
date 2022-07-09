@@ -11,7 +11,7 @@ public class JobSequencing {
         Job arr[] = new Job[n];
         int id ,deadline , profit;
         for (int i = 0; i <n ; i++) {
-            id = sc.nextInt();;
+            id = sc.nextInt();
             deadline = sc.nextInt();
             profit = sc.nextInt();
             arr[i] = new Job(id , deadline , profit);
@@ -21,6 +21,7 @@ public class JobSequencing {
     }
 
     private static void jobSequencing(Job[] arr, int n) {
+        //sort decreasing order according to profit
         Arrays.sort(arr, new Comparator<Job>() {
             @Override
             public int compare(Job o1, Job o2) {

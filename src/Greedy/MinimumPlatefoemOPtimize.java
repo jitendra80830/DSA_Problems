@@ -23,7 +23,7 @@ public class MinimumPlatefoemOPtimize {
     private static int minimumPlateform(int[] arrival, int[] dept, int n) {
         int plate = 1;
         int maxPlat  = 1;
-        int i = 0;
+        int i = 1;
         int j =0;
         while (i < n &&  j<n){
             if(arrival[i] <= dept[j]){

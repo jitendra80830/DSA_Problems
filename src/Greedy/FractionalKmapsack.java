@@ -41,7 +41,7 @@ public class FractionalKmapsack {
     }
 
     private static void fractionalKnapsack(Product[] ratio, float cap, int n) {
-        //first sort increasing order according to profit
+        //first sort increasing order according to profit/w
         Arrays.sort(ratio, new Comparator<Product>() {
             @Override
             public int compare(Product o1, Product o2) {

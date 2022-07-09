@@ -21,8 +21,8 @@ public class MinimusPlateformBruteForce {
     private static int minimumPlateform(int[] arrival, int[] dept, int n) {
         int plate =1;
         int maxPlate = Integer.MIN_VALUE;
-        for (int i = 0; i <n-2 ; i++) {
-            for (int j = i+1; j <n-1 ; j++) {
+        for (int i = 0; i <n-1 ; i++) {
+            for (int j = i+1; j <n ; j++) {
                 if(arrival[i] >= arrival[j] && arrival[i] <= dept[j]){
                     plate+=1;
                 }

@@ -25,8 +25,6 @@ public class V_Pettern {
             }
             space = space - 2;
             System.out.println();
-
-
         }
     }
 

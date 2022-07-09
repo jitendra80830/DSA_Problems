@@ -17,6 +17,7 @@ public class QuickSort {
 
         }
     }
+
     public static void quickSort(int arr[] , int si , int ei){
         if(si > ei){
             return;
