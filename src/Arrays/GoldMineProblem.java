@@ -13,7 +13,7 @@ public class GoldMineProblem {
                 gold[i][j] = sc.nextInt();
             }
         }
-        getMaxGold(gold,n,m);
+        System.out.print(getMaxGold(gold,n,m));
     }
 
     private static int getMaxGold(int[][] gold, int n, int m) {
@@ -22,6 +22,7 @@ public class GoldMineProblem {
 
         for (int i = 0; i < n; i++) {
             int goldCollected = collectGold(gold,i,0,n,m);
+            maxGold = Math.max(maxGold , goldCollected);
         }
         return maxGold;
     }
@@ -31,7 +32,7 @@ public class GoldMineProblem {
             return 0;
         }
         //right upper diagonal
-        int rightUpper = collectGold(gold,x-1 , y+1,n,n);
+        int rightUpper = collectGold(gold,x-1 , y+1,n,m);
 
         // right
         int right = collectGold(gold ,x ,y+1,n,m);
@@ -40,7 +41,7 @@ public class GoldMineProblem {
 
         int rightLower = collectGold(gold,x+1,y+1,n,m);
 
-        return gold[x][y] = Math.max(Math.max(rightLower , rightUpper) , right);
+        return gold[x][y] + Math.max(Math.max(rightLower , rightUpper) , right);
 
     }
 }

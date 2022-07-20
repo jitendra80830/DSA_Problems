@@ -1,6 +1,7 @@
 package HashMap;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class SameSet {
@@ -15,6 +16,7 @@ public class SameSet {
         for (int i = 0; i <n ; i++) {
             brr[i] = sc.nextInt();
         }
+        //HashSet<Integer> set = new HashSet<>();
         HashMap<Integer ,  Integer> map = new HashMap<>();
         for (int i = 0; i <n ; i++) {
             if(map.get(arr[i]) == null){
