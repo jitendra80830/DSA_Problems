@@ -85,4 +85,19 @@ public class BstMethods {
 
     }
 
+    public boolean isValidBST(Node root) {
+        return isValidbst(root , Long.MIN_VALUE , Long.MAX_VALUE);
+
+    }
+
+    private boolean isValidbst(Node root, long minValue, long maxValue1) {
+        if(root == null){
+            return true;
+        }
+        if(root.data >=maxValue1 || root.data <= minValue ){
+            return false;
+        }
+        return isValidbst(root.left , minValue , root.data) && isValidbst(root.right , root.data , maxValue1);
+    }
+
 }

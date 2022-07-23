@@ -352,5 +352,40 @@ class LinkedList<C> {
         return arr[0];
 
     }
+    public Node reverseBetween(Node head, int left, int right) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        if(left == right){
+            return head;
+        }
+
+        Node dummy = new Node(-1);
+        dummy.next = head;
+        Node it = dummy;
+        Node prevT = null;
+        for (int i = 0; i <left ; i++) {
+            prevT = it;
+            it = it.next;
+        }
+
+        //reversing
+        Node itR = it;
+        Node ItvR = prevT;
+        for (int i = left; i <=right ; i++) {
+            Node forward = itR.next;
+            itR.next = ItvR;
+            ItvR = itR;
+            itR = forward;
+        }
+        //connecting
+        prevT.next =ItvR ;
+        it.next = itR;
+
+
+        return dummy.next;
+
+
+    }
 
 }
