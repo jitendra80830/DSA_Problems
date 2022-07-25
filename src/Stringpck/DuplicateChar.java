@@ -20,6 +20,8 @@ public class DuplicateChar {
 
                 if(charMap.containsKey(ch)){
                     charMap.put(ch , charMap.get(ch) + 1);
+
+
                 }else{
                     charMap.put(ch ,1);
                 }
