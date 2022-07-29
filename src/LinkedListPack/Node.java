@@ -388,4 +388,40 @@ class LinkedList<C> {
 
     }
 
+    public Node addTwoNumbers(Node l1 , Node l2){
+        Node ans = new Node(0);
+        Node p = l1;
+        Node q = l2;
+        Node curr = ans;
+        int carry = 0;
+
+        //adding left to right approach
+        while(p!=null || q!=null){
+            int x = 0;
+            int y = 0;
+            if(p!=null){
+                x = p.data;
+            }
+            if(q!=null){
+                y = q.data;
+            }
+            int sum = carry + x + y;
+            carry = sum/10;
+            curr.next = new Node(sum%10);
+            curr = curr.next;
+
+            if(p!=null){
+                p = p.next;
+            }
+            if(q!=null){
+                q = q.next;
+            }
+
+        }
+        if(carry >0){
+            curr.next = new Node(carry);
+        }
+        return ans.next;
+    }
+
 }

@@ -30,7 +30,7 @@ public class PattternMatchingMethod {
 
     }
     public void matchPattern(String pattern){
-        //int count = 0;
+        int count = 0;
         //boolean flag = false;
         if(pattern == null){
             return;
@@ -49,10 +49,12 @@ public class PattternMatchingMethod {
         }else {
             for (int j = 0; j <currentNode.nodeIndex.size() ; j++) {
                 //flag = true;
-                System.out.println("Patter found at index "+ (currentNode.nodeIndex.get(j) - (pattern.length() - 1)));
+                //System.out.println("Patter found at index "+ (currentNode.nodeIndex.get(j) - (pattern.length() - 1)));
+                count++;
 
             }
         }
+        System.out.println(count);
 
 
     }
