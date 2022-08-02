@@ -423,5 +423,29 @@ class LinkedList<C> {
         }
         return ans.next;
     }
+    public Node oddEvenList(Node head){
+        Node currOdd = new Node(0);
+        Node odd = currOdd;
+        Node currEven = new Node(0);
+        Node even = currEven;
+        int i = 1;
+        Node curr = head;
+
+        while (curr!=null){
+            if(i%2 ==0){
+                even.next = curr;
+                even= even.next;
+            }else {
+                odd.next = curr;
+                odd = odd.next;
+            }
+            curr = curr.next;
+            i++;
+        }
+        odd.next = currEven.next;
+        even.next = null;
+        return currOdd.next;
+
+    }
 
 }
