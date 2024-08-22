@@ -25,6 +25,7 @@ public class KthHeigestHight {
             if(counter == k){
                 System.out.println(maxEle);
             }
+            
         }
     }
 }
